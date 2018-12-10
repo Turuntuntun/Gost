@@ -12,7 +12,7 @@
 			<div>
 				<nav>
 				  <ul class="pagination">
-					<li class="disabled">
+					<li>
 						<a href="?page=1"  aria-label="Previous">
 							<span aria-hidden="true">&laquo;</span>
 						</a>
@@ -28,8 +28,8 @@
     mysqli_query($link, "SET NAMES 'utf8'");
     
     if(isset($_POST['submit'])){
-    	$name = $_POST['name'];
-    	$text = $_POST['text'];
+    	$name = strip_tags($_POST['name']);
+    	$text = strip_tags($_POST['text']);
     	$time = time();
     	$date = date('Y-m-d H:i:s',$time); 
     	$query1 = "INSERT INTO gost SET `name` = '$name' , `date` = '$date',   `text` = '$text'";    
